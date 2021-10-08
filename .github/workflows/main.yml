@@ -16,6 +16,10 @@ jobs:
       - name: Fetch Sources
         uses: actions/checkout@v2
 
+      # Gradlew is now executable
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
       # Build application
       - name: Test and Build
         run: ./gradlew build
