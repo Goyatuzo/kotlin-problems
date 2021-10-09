@@ -24,6 +24,10 @@ class InventoryManagementSystem {
             return pair.first * pair.second
         }
 
+        fun partTwo(ids: List<String>): String {
+            return ""
+        }
+
         fun solve() {
             val text = this::class.java.getResource("/adventOfCode/2018/day2.txt")?.readText(Charsets.UTF_8)
 

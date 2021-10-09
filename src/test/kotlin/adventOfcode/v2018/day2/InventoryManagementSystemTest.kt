@@ -22,4 +22,11 @@ class InventoryManagementSystemTest {
             "ababab"
         )))
     }
+
+    @Test
+    fun`P2 ('abcde', 'fghij', 'klmno', 'pqrst', 'fguij', 'axcye', 'wvxyz'`() {
+        assertEquals("fgij", InventoryManagementSystem.partTwo(listOf(
+            "abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz"
+        )))
+    }
 }
