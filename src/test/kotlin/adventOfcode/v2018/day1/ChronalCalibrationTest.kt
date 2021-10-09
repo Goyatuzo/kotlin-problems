@@ -22,6 +22,16 @@ class ChronalCalibrationTest {
 
     @Test
     fun `P2 - (+1, -1) results in 0`() {
-        assertEquals(-6, ChronalCalibration.partOne(listOf("-1", "-2", "-3")))
+        assertEquals(0, ChronalCalibration.partTwo(listOf("+1", "-1")))
+    }
+
+    @Test
+    fun `P2 - (+3, +3, +4, -2, -4) results in 10`() {
+        assertEquals(10, ChronalCalibration.partTwo(listOf("+3", "+3", "+4", "-2", "-4")))
+    }
+
+    @Test
+    fun `P2 - (-6, +3, +8, +5, -6) results in 5`() {
+        assertEquals(5, ChronalCalibration.partTwo(listOf("-6", "+3", "+8", "+5", "-6")))
     }
 }
