@@ -45,6 +45,7 @@ class InventoryManagementSystem {
             val text = this::class.java.getResource("/adventOfCode/2018/day2.txt")?.readText(Charsets.UTF_8)
 
             println(partOne(text!!.lines().filter { it.isNotEmpty() }))
+            println(partTwo(text.lines().filter { it.isNotEmpty() }))
         }
     }
 }
