@@ -24,8 +24,21 @@ class InventoryManagementSystem {
             return pair.first * pair.second
         }
 
+        private fun commonCharacters(first: String, second: String) = (first.indices).fold("") { acc, curr ->
+            acc + if (first[curr] == second[curr]) first[curr] else ""
+        }
+
         fun partTwo(ids: List<String>): String {
-            return ""
+            (0 until ids.count()).forEach { firstIdx ->
+                (firstIdx+1 until ids.count()).forEach { secondIdx ->
+                    val common = commonCharacters(ids[firstIdx], ids[secondIdx])
+                    if (common.length == ids[firstIdx].length - 1) {
+                        return common
+                    }
+                }
+            }
+
+            return String()
         }
 
         fun solve() {

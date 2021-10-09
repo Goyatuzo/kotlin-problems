@@ -24,7 +24,7 @@ class InventoryManagementSystemTest {
     }
 
     @Test
-    fun`P2 ('abcde', 'fghij', 'klmno', 'pqrst', 'fguij', 'axcye', 'wvxyz'`() {
+    fun`P2 ('abcde', 'fghij', 'klmno', 'pqrst', 'fguij', 'axcye', 'wvxyz') results in 'fgij'`() {
         assertEquals("fgij", InventoryManagementSystem.partTwo(listOf(
             "abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz"
         )))
