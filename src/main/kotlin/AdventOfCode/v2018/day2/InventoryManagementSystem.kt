@@ -9,7 +9,7 @@ class InventoryManagementSystem {
                 val count = hashMapOf<Char, Int>()
 
                 id.forEach { ch ->
-                    count[ch] = count.getOrPut(ch) { 0 }
+                    count[ch] = count.getOrPut(ch) { 0 } + 1
                 }
 
                 if (count.containsValue(2)) {
