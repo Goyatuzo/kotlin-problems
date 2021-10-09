@@ -7,7 +7,7 @@ import kotlin.test.assertEquals
 class InventoryManagementSystemTest {
     @Test
     fun `P1 ('abcdef', 'bababc', 'abbcde') results in 2`() {
-        assertEquals(3, InventoryManagementSystem.partOne(listOf("abcdef", "bababc", "abbcde")))
+        assertEquals(2, InventoryManagementSystem.partOne(listOf("abcdef", "bababc", "abbcde")))
     }
 
     @Test
