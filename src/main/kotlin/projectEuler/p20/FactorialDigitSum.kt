@@ -14,3 +14,7 @@ class FactorialDigitSum {
         }
     }
 }
+
+fun main() {
+    println(FactorialDigitSum.solve(100))
+}
