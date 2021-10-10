@@ -4,7 +4,10 @@ import java.math.BigInteger
 
 class PowerDigitSum {
     companion object {
-        fun solve(base: Long, power: Int): Int = BigInteger.valueOf(base).pow(power).toString().chars().sum()
+        fun solve(base: Long, power: Int): BigInteger = BigInteger.valueOf(base).pow(power)
+                .toString()
+                .toCharArray()
+                .sumOf { BigInteger(it.toString()) }
     }
 }
 
