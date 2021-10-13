@@ -11,7 +11,7 @@ class NearestFraction {
             var closest = Double.MAX_VALUE
 
             (1..n).forEach { denominator ->
-                var numerator = 1
+                var numerator = 0
                 do {
                     val current = (numerator++).toDouble() / denominator
 
