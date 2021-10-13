@@ -23,4 +23,9 @@ class NearestFractionTest {
     fun `1, 2, 1 results in 0 over 1`() {
         assertEquals("0/1", NearestFraction.solve(1, 2, 1))
     }
+
+    @Test
+    fun `72657, 93778, 50943 results in 38236 over 49351`() {
+        assertEquals("38236/49351", NearestFraction.solve(72657, 93778, 50943))
+    }
 }
