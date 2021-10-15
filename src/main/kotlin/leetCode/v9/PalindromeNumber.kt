@@ -4,7 +4,7 @@ class PalindromeNumber {
     fun isPalindrome(x: Int): Boolean {
         val str = x.toString().toCharArray()
 
-        (str.indices).forEach { i ->
+        (0 until str.size / 2).forEach { i ->
             if (str[i] != str[str.size - 1 - i]) {
                 return false
             }
