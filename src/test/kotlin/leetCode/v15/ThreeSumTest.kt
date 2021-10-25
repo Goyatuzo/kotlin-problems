@@ -11,7 +11,7 @@ class ThreeSumTest {
     @Test
     fun `(-1, 0, 1, 2, -1, -4) should output ((-1, -1, 2), (-1, 0, 1))`() {
         val t = sol.threeSum(intArrayOf(-1, 0, 1, 2, -1, -4))
-        assertThat(t).containsExactly(listOf(listOf(-1, 0, 1), listOf(-1, -1, 2)))
+        assertThat(t).contains(listOf(listOf(-1, 0, 1), listOf(-1, -1, 2)))
     }
 
     @Test
