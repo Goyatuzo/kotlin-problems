@@ -8,16 +8,16 @@ class ThreeSumTest {
 
     @Test
     fun `(-1, 0, 1, 2, -1, -4) should output ((-1, -1, 2), (-1, 0, 1))`() {
-        assertEquals(listOf(listOf(-1, -1, 2), listOf(-1, 0, 1)), sol.threeSum(listOf(-1, 0, 1, 2, -1, -4)))
+        assertEquals(listOf(listOf(-1, 0, 1), listOf(-1, -1, 2)), sol.threeSum(intArrayOf(-1, 0, 1, 2, -1, -4)))
     }
 
     @Test
     fun `() should output ()`() {
-        assertEquals(emptyList(), sol.threeSum(emptyList()))
+        assertEquals(emptyList(), sol.threeSum(intArrayOf()))
     }
 
     @Test
     fun `(0) should output ()`() {
-        assertEquals(emptyList(), sol.threeSum(listOf(0)))
+        assertEquals(emptyList(), sol.threeSum(intArrayOf(0)))
     }
 }

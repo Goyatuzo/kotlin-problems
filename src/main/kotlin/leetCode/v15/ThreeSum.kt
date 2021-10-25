@@ -1,19 +1,28 @@
 package leetCode.v15
 
 class Solution {
-    fun threeSum(nums: List<Int>): List<List<Int>> = when (nums.size) {
+    fun threeSum(nums: IntArray): List<List<Int>> = when (nums.size) {
         0, 1, 2 -> emptyList()
-        else -> nums.foldIndexed(emptyList()) { i, acc, target ->
+        else -> nums.foldIndexed<List<List<Int>>>(emptyList()) { i, acc, target ->
             val map = mutableMapOf<Int, Int>()
+            var currentAccumulation = listOf<List<Int>>()
 
-            (i+1..nums.size).forEach { c ->
-                if (map.containsKey(-c)) {
-                    return acc + listOf(listOf(target, target - nums[c], nums[c]))
+            (i+1 until nums.size).forEach { c ->
+                val curr = nums[c]
+                if (map.containsKey(-curr)) {
+                    currentAccumulation = currentAccumulation + listOf(listOf(target, map.getValue(-curr), curr))
                 }
-                map[target - nums[c]] = nums[c]
+                map[target + curr] = curr
             }
 
-            return acc
+            if (currentAccumulation.isNotEmpty()) {
+                acc + currentAccumulation
+            } else {
+                acc
+            }
         }
+            .map { it.sorted() }
+            .toSet()
+            .toList()
     }
 }
