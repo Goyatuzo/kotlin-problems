@@ -12,7 +12,7 @@ class NamesScores {
             val text = this::class.java.getResource("/projectEuler/names.txt")?.readText(Charsets.UTF_8)
             val names = text?.replace("\"","")?.split(',') ?: emptyList()
 
-            return names.foldIndexed(BigInteger.ZERO) { idx, acc, curr -> acc + solveForOne(idx + 1, curr) }
+            return names.sorted().foldIndexed(BigInteger.ZERO) { idx, acc, curr -> acc + solveForOne(idx + 1, curr) }
         }
     }
 }
