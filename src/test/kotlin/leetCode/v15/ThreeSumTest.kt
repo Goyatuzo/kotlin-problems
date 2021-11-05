@@ -8,7 +8,7 @@ class ThreeSumTest {
 
     @Test
     fun `(-1, 0, 1, 2, -1, -4) should output ((-1, -1, 2), (-1, 0, 1))`() {
-        assertThat(sol.threeSum(intArrayOf(-1, 0, 1, 2, -1, -4))).contains(listOf(listOf(-1, 0, 1), listOf(-1, -1, 2)))
+        assertThat(sol.threeSum(intArrayOf(-1, 0, 1, 2, -1, -4))).containsExactlyElementsIn(listOf(listOf(-1, 0, 1), listOf(-1, -1, 2)))
     }
 
     @Test
