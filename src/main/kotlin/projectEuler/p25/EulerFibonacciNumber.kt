@@ -23,3 +23,8 @@ class EulerFibonacciNumber {
         }
     }
 }
+
+
+fun main() {
+    println("1000-digit Fibonacci number: ${EulerFibonacciNumber.solve(1000)}")
+}
