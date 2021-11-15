@@ -7,7 +7,7 @@ class EulerFibonacciNumber {
         fun solve(n: Int): Int {
             var curr = BigInteger.ONE
             var prev = BigInteger.ZERO
-            var sequence = 0
+            var sequence = 1
             var count = 0
 
             while (count < n) {
