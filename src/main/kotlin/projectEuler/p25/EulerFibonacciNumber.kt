@@ -4,22 +4,18 @@ import java.math.BigInteger
 
 class EulerFibonacciNumber {
     companion object {
-        fun solve(n: Int): Int {
-            var curr = BigInteger.ONE
-            var prev = BigInteger.ZERO
-            var sequence = 1
-            var count = 0
+        fun solve(n: Int): Int = when (n) {
+                0 -> 0
+                1 -> 1
+                else -> {
+                    val cache = mutableListOf<BigInteger>(BigInteger.ZERO, BigInteger.ONE)
 
-            while (count < n) {
-                val next = curr + prev
-                prev = curr
-                curr = next
+                    while (cache.last().toString().length < n) {
+                        cache.add(cache[cache.size - 2] + cache[cache.size - 1])
+                    }
 
-                count = next.toString().length
-                sequence++
-            }
-
-            return sequence
+                    cache.size - 1
+                }
         }
     }
 }
