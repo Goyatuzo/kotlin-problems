@@ -3,7 +3,6 @@ package adventOfcode.v2021.day1
 import adventOfCode.v2021.day1.SonarSweep
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 class SonarSweepTest {
     @Test
