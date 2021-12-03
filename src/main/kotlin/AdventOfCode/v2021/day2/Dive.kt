@@ -8,11 +8,11 @@ enum class Direction {
 
 class Dive {
     companion object {
-        fun solveOne(movements: List<Pair<Direction, Int>>): Int {
+        fun partOne(movements: List<Pair<Direction, Int>>): Int {
             var x = 0
             var y = 0
 
-            for ((direction, distance) in movements) {
+            movements.forEach { (direction, distance) ->
                 when (direction) {
                     Direction.FORWARD -> x += distance
                     Direction.UP -> y -= distance
