@@ -15,5 +15,17 @@ class BinaryDiagnostic {
             val toInverse = counts.map { if (it > 0) '0' else '1' }.fold("") { curr, acc -> curr + acc }
             return Integer.parseUnsignedInt(toBinary, 2).toUInt() * Integer.parseUnsignedInt(toInverse, 2).toUInt()
         }
+
+        fun solve() {
+            val text = this::class.java.getResource("/adventOfCode/2021/day3.txt")?.readText(Charsets.UTF_8)
+
+            val binaries = text!!.lines().filter { it.isNotEmpty() }
+
+            println(partOne(binaries))
+        }
     }
+}
+
+fun main() {
+    BinaryDiagnostic.solve()
 }
