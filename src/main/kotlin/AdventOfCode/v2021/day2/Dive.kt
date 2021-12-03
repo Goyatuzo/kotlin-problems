@@ -53,6 +53,7 @@ class Dive {
             }
 
             println(partOne(movements))
+            println(partTwo(movements))
         }
     }
 }
