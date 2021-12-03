@@ -1,7 +1,5 @@
 package adventOfCode.v2021.day2
 
-import java.util.*
-
 
 enum class Direction {
     FORWARD,
@@ -24,6 +22,26 @@ class Dive {
             }
 
             return x * y
+        }
+
+        fun partTwo(movements: List<Pair<Direction, Int>>): Int {
+            var x = 0
+            var aim = 0
+            var horizontal = 0
+
+            movements.forEach { (direction, distance) ->
+                when (direction) {
+                    Direction.FORWARD -> {
+                        horizontal += distance
+                        x += distance * aim
+                    }
+
+                    Direction.UP -> aim -= distance
+                    Direction.DOWN -> aim += distance
+                }
+            }
+
+            return x * horizontal
         }
 
         fun solve() {
