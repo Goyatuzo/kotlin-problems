@@ -16,7 +16,7 @@ class BinaryDiagnostic {
             return Integer.parseUnsignedInt(toBinary, 2).toUInt() * Integer.parseUnsignedInt(toInverse, 2).toUInt()
         }
 
-        fun oxygenGenerator(binaries: List<String>): UInt {
+        private fun mostCommon(binaries: List<String>, comp: (x: Int, y: Int) -> Boolean): UInt {
             var zeros = binaries
             var ones = binaries
             var idx = 0
@@ -25,7 +25,7 @@ class BinaryDiagnostic {
                 ones = ones.filter { it[idx] == '1' }
                 zeros = zeros.filter { it[idx] == '0' }
 
-                if (ones.count() < zeros.count()) {
+                if (comp(ones.count(), zeros.count())) {
                     ones = zeros
                 } else {
                     zeros = ones
@@ -39,30 +39,7 @@ class BinaryDiagnostic {
             return Integer.parseUnsignedInt(binary, 2).toUInt()
         }
 
-        fun scrubberRating(binaries: List<String>): UInt {
-            var zeros = binaries
-            var ones = binaries
-            var idx = 0
-
-            while (zeros.size > 1) {
-                ones = ones.filter { it[idx] == '1' }
-                zeros = zeros.filter { it[idx] == '0' }
-
-                if (ones.count() >= zeros.count()) {
-                    ones = zeros
-                } else {
-                    zeros = ones
-                }
-
-                idx++
-            }
-
-            val binary = if (zeros.isNotEmpty()) zeros.first() else ones.first()
-
-            return Integer.parseUnsignedInt(binary, 2).toUInt()
-        }
-
-        fun partTwo(binaries: List<String>) = oxygenGenerator(binaries) * scrubberRating(binaries)
+        fun partTwo(binaries: List<String>) = mostCommon(binaries) { x, y -> x < y } * mostCommon(binaries) { x, y -> x >= y }
 
         fun solve() {
             val text = this::class.java.getResource("/adventOfCode/2021/day3.txt")?.readText(Charsets.UTF_8)
