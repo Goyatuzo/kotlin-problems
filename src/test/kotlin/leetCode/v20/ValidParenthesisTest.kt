@@ -20,4 +20,9 @@ class ValidParenthesisTest {
     fun `different termination should output false`() {
         assertThat(sol.isValid("(]")).isFalse()
     }
+
+    @Test
+    fun `starting from termination should output false`() {
+        assertThat(sol.isValid("]")).isFalse()
+    }
 }
