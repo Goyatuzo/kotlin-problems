@@ -19,5 +19,12 @@ class NextRound {
 }
 
 fun main() {
+    val first = readLine()?.split(' ')?.map { it.toInt() }
+    val values = readLine()?.split(' ')?.map { it.toInt() }
 
+    if (first != null && values != null) {
+        val (_, k) = first
+
+        println(NextRound.solve(k, values))
+    }
 }

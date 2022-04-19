@@ -16,6 +16,6 @@ class NextRoundTest {
 
     @Test
     fun `k = 5, 10 9 8 0 0 0 0 0 is 3`() {
-        assertEquals(3, NextRound.solve(5, listOf(10, 9, 8, 7, 7, 7, 5, 5)))
+        assertEquals(3, NextRound.solve(5, listOf(10, 9, 8, 0, 0, 0, 0, 0)))
     }
 }
