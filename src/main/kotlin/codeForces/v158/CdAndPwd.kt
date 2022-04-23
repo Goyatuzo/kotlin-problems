@@ -4,30 +4,34 @@ class CdAndPwd {
     companion object {
         private fun resolve(base: String, args: String): String {
             val baseStack = base.split("/").filter { it.isNotEmpty() }
-            return args.split("/").filter { it.isNotEmpty() }.fold(baseStack) { acc, curr ->
-                if (curr == "..") {
-                    acc.dropLast(1)
-                } else {
-                    acc + listOf(curr)
+            return args.split("/")
+                .filter { it.isNotEmpty() }
+                .fold(baseStack) { acc, curr ->
+                    if (curr == "..") {
+                        acc.dropLast(1)
+                    } else {
+                        acc + listOf(curr)
+                    }
                 }
-            }.joinToString("/", "/", "/")
+                .joinToString("/", "/", "/")
         }
 
-        fun solve(command: String, cwd: String, args: String): String = when (command) {
-            "pwd" -> if (cwd == "//") "/" else cwd
-            "cd" -> {
-                if (args.startsWith("/")) {
-                    resolve("/", args)
-                } else {
-                    resolve(cwd, args)
+        fun solve(command: String, cwd: String, args: String): String =
+            when (command) {
+                "pwd" -> if (cwd == "//") "/" else cwd
+                "cd" -> {
+                    if (args.startsWith("/")) {
+                        resolve("/", args)
+                    } else {
+                        resolve(cwd, args)
+                    }
                 }
+                else -> throw Exception("Bad command")
             }
-            else -> throw Exception("Bad command")
-        }
     }
 }
 
-fun main () {
+fun main() {
     readLine()
     var current = "/"
 

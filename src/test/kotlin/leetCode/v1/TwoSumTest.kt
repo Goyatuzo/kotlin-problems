@@ -1,7 +1,7 @@
 package leetCode.v1
 
-import org.junit.jupiter.api.Test
 import kotlin.test.assertContentEquals
+import org.junit.jupiter.api.Test
 
 class TwoSumTest {
     private val sol = Solution()

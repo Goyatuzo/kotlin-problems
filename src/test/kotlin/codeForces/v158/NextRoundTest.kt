@@ -1,7 +1,7 @@
 package codeForces.v158
 
-import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
 
 class NextRoundTest {
     @Test

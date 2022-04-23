@@ -8,16 +8,17 @@ class MaximumPathSumI {
             val longestPaths = mutableListOf<List<Int>>()
 
             array.forEachIndexed { i, row ->
-                val longestPathRow = row.mapIndexed { j, value ->
-                    if (i == 0) {
-                        value
-                    } else {
-                        val prevRowSize = longestPaths[i - 1].size
-                        val left = if (j - 1 > 0) j - 1 else 0
-                        val right = if (j < prevRowSize) j else prevRowSize - 1
-                        max(longestPaths[i - 1][left], longestPaths[i - 1][right]) + value
+                val longestPathRow =
+                    row.mapIndexed { j, value ->
+                        if (i == 0) {
+                            value
+                        } else {
+                            val prevRowSize = longestPaths[i - 1].size
+                            val left = if (j - 1 > 0) j - 1 else 0
+                            val right = if (j < prevRowSize) j else prevRowSize - 1
+                            max(longestPaths[i - 1][left], longestPaths[i - 1][right]) + value
+                        }
                     }
-                }
                 longestPaths.add(longestPathRow)
             }
 
@@ -27,7 +28,8 @@ class MaximumPathSumI {
 }
 
 fun main() {
-    val t = """75
+    val t =
+        """75
         95 64
         17 47 82
         18 35 87 10
