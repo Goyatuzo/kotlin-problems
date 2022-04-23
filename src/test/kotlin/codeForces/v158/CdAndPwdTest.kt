@@ -23,4 +23,10 @@ class CdAndPwdTest {
     fun `cd relative path`() {
         assertThat(CdAndPwd.solve("cd", "/home/", "vasya/../petya")).isEqualTo("/home/petya/")
     }
+
+    @Test
+    fun `cd absolute path with dot dot`() {
+        assertThat(CdAndPwd.solve("cd", "/home/", "/test/../a")).isEqualTo("/a/")
+
+    }
 }

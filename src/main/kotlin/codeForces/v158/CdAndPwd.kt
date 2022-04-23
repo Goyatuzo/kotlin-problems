@@ -2,20 +2,24 @@ package codeForces.v158
 
 class CdAndPwd {
     companion object {
+        private fun resolve(base: String, args: String): String {
+            val baseStack = base.split("/").filter { it.isNotEmpty() }
+            return args.split("/").filter { it.isNotEmpty() }.fold(baseStack) { acc, curr ->
+                if (curr == "..") {
+                    acc.dropLast(1)
+                } else {
+                    acc + listOf(curr)
+                }
+            }.joinToString("/", "/", "/")
+        }
+
         fun solve(command: String, cwd: String, args: String): String = when (command) {
             "pwd" -> cwd
             "cd" -> {
                 if (args.startsWith("/")) {
-                    if (args.endsWith("/")) args else "$args/"
+                    resolve("/", args)
                 } else {
-                    val cwdStack = cwd.split("/").filter { it.isNotEmpty() }
-                    args.split("/").filter { it.isNotEmpty() }.fold(cwdStack) { acc, curr ->
-                        if (curr == "..") {
-                            acc.dropLast(1)
-                        } else {
-                            acc + listOf(curr)
-                        }
-                    }.joinToString("/", "/", "/")
+                    resolve(cwd, args)
                 }
             }
             else -> throw Exception("Bad command")
