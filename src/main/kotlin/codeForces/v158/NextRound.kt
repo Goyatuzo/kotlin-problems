@@ -3,12 +3,14 @@ package codeForces.v158
 class NextRound {
     companion object {
         fun solve(k: Int, scores: List<Int>): Int = scores.foldIndexed(0) { idx, acc, curr ->
+            val kth = k - 1
+
             if (curr == 0) {
                 acc
             } else {
-                if (idx > k && scores[k] == curr) {
+                if (idx > kth && scores[kth] == curr) {
                     acc + 1
-                } else if (idx <= k) {
+                } else if (idx <= kth) {
                     acc + 1
                 } else {
                     acc
