@@ -10,7 +10,12 @@ class CdAndPwdTest {
     }
 
     @Test
-    fun `cd at -home-vasya returns -home-vasya`() {
-        assertThat(CdAndPwd.solve("cd", "/", "/home/vasya")).isEqualTo("/home/vasya")
+    fun `cd at -home-vasya returns -home-vasya-`() {
+        assertThat(CdAndPwd.solve("cd", "/", "/home/vasya")).isEqualTo("/home/vasya/")
+    }
+
+    @Test
+    fun `cd dot dot returns one folder up`() {
+        assertThat(CdAndPwd.solve("cd", "/home/vasya", "..")).isEqualTo("/home/")
     }
 }

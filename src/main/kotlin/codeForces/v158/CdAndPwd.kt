@@ -6,16 +6,16 @@ class CdAndPwd {
             "pwd" -> cwd
             "cd" -> {
                 if (args.startsWith("/")) {
-                    args
+                    if (args.endsWith("/")) args else args + "/"
                 } else {
                     val cwdStack = cwd.split("/")
-                    args.split("/").fold(cwdStack) {acc, curr ->
+                    args.split("/").fold(cwdStack) { acc, curr ->
                         if (curr == "..") {
-                            cwdStack.dropLast(1)
+                            acc.dropLast(1)
                         } else {
-                            cwdStack + listOf(curr)
+                            acc + listOf(curr)
                         }
-                    }.joinToString("/")
+                    }.joinToString("/", "", "/")
                 }
             }
             else -> throw Exception("Bad command")
