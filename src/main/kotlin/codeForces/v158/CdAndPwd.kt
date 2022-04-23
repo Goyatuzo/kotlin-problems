@@ -22,3 +22,21 @@ class CdAndPwd {
         }
     }
 }
+
+fun main () {
+    readLine()
+    var current = "/"
+
+    do {
+        val line = readLine()
+
+        if (line != null) {
+            val args = line.split(" ")
+            current = CdAndPwd.solve(args[0], current, if (args.size > 1) args[1] else "")
+
+            if (args[0] == "pwd") {
+                println(current)
+            }
+        }
+    } while (line != null)
+}
