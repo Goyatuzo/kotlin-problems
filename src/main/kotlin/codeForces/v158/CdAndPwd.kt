@@ -14,7 +14,7 @@ class CdAndPwd {
         }
 
         fun solve(command: String, cwd: String, args: String): String = when (command) {
-            "pwd" -> cwd
+            "pwd" -> if (cwd == "//") "/" else cwd
             "cd" -> {
                 if (args.startsWith("/")) {
                     resolve("/", args)

@@ -27,6 +27,9 @@ class CdAndPwdTest {
     @Test
     fun `cd absolute path with dot dot`() {
         assertThat(CdAndPwd.solve("cd", "/home/", "/test/../a")).isEqualTo("/a/")
-
+    }
+    @Test
+    fun `pwd double slash is not returned`() {
+        assertThat(CdAndPwd.solve("pwd", "//", "")).isEqualTo("/")
     }
 }
