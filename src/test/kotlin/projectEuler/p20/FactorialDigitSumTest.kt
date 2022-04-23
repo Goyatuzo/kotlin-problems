@@ -1,8 +1,8 @@
 package projectEuler.p20
 
-import org.junit.jupiter.api.Test
 import java.math.BigInteger
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
 
 class FactorialDigitSumTest {
     @Test

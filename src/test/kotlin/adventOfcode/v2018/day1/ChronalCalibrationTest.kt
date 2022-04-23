@@ -1,8 +1,8 @@
 package adventOfcode.v2018.day1
 
 import adventOfCode.v2018.day1.ChronalCalibration
-import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
 
 class ChronalCalibrationTest {
     @Test

@@ -1,9 +1,7 @@
 package projectEuler.p22
 
-import org.junit.jupiter.api.Test
-import projectEuler.p20.FactorialDigitSum
-import java.math.BigInteger
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
 
 class NamesScoresTest {
     @Test

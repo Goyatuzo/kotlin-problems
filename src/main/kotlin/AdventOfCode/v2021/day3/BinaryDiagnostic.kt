@@ -11,9 +11,12 @@ class BinaryDiagnostic {
                 }
             }
 
-            val toBinary = counts.map { if (it > 0) '1' else '0' }.fold("") { curr, acc -> curr + acc }
-            val toInverse = counts.map { if (it > 0) '0' else '1' }.fold("") { curr, acc -> curr + acc }
-            return Integer.parseUnsignedInt(toBinary, 2).toUInt() * Integer.parseUnsignedInt(toInverse, 2).toUInt()
+            val toBinary =
+                counts.map { if (it > 0) '1' else '0' }.fold("") { curr, acc -> curr + acc }
+            val toInverse =
+                counts.map { if (it > 0) '0' else '1' }.fold("") { curr, acc -> curr + acc }
+            return Integer.parseUnsignedInt(toBinary, 2).toUInt() *
+                Integer.parseUnsignedInt(toInverse, 2).toUInt()
         }
 
         private fun mostCommon(binaries: List<String>, comp: (x: Int, y: Int) -> Boolean): UInt {
@@ -39,10 +42,15 @@ class BinaryDiagnostic {
             return Integer.parseUnsignedInt(binary, 2).toUInt()
         }
 
-        fun partTwo(binaries: List<String>) = mostCommon(binaries) { x, y -> x < y } * mostCommon(binaries) { x, y -> x >= y }
+        fun partTwo(binaries: List<String>) =
+            mostCommon(binaries) { x, y -> x < y } * mostCommon(binaries) { x, y -> x >= y }
 
         fun solve() {
-            val text = this::class.java.getResource("/adventOfCode/2021/day3.txt")?.readText(Charsets.UTF_8)
+            val text =
+                this::class
+                    .java
+                    .getResource("/adventOfCode/2021/day3.txt")
+                    ?.readText(Charsets.UTF_8)
 
             val binaries = text!!.lines().filter { it.isNotEmpty() }
 
