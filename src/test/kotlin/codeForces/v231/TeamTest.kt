@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test
 class TeamTest {
     @Test
     fun `first sample returns 2`() {
-        assertThat(Team.solve(listOf(listOf(1, 1, 0), listOf(1, 1, 1), listOf(1, 0, 0)))).isEqualTo(2)
+        assertThat(Team.solve(listOf(listOf(1, 1, 0), listOf(1, 1, 1), listOf(1, 0, 0))))
+            .isEqualTo(2)
     }
 
     @Test
