@@ -10,3 +10,18 @@ class Team {
         }
     }
 }
+
+fun main() {
+    readLine()
+    val opinions = mutableListOf<List<Int>>()
+
+    do {
+        val line = readLine()
+
+        if (line != null) {
+            opinions.add(line.split(" ").map { it.toInt() })
+        }
+    } while (line != null)
+
+    println(Team.solve(opinions))
+}
